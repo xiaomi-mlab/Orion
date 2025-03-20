@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="description"
+        content="ORION: A Holistic End-to-End Autonomous Driving Framework by Vision-Language Instructed Action Generation">
+  <meta name="keywords" content="VLM, Autonomous Driving, End-to-End">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ORION: A Holistic End-to-End Autonomous Driving Framework by Vision-Language Instructed Action Generation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title" style="white-space: nowrap;">
+            ORION: A Holistic End-to-End Autonomous Driving Framework 
+          </h1>
+          <h1 class="title is-1 publication-title" style="white-space: nowrap;">
+            by Vision-Language Instructed Action Generation 
+          </h1>
+          
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Haoyu Fu</a><sup>1*</sup>,
+            </span>
+            <span class="author-block">
+              Diankun Zhang</a><sup>2*</sup>,</span>
+            <span class="author-block">
+              Zongchuang Zhao</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              Jianfeng Cui</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              Dingkang Liang</a><sup>1†</sup>,
+            </span>
+            <span class="author-block">
+              Chong Zhang</a><sup>2</sup>,
+            </span>
+            <p></p>
+            <span class="author-block">
+              Dingyuan Zhang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Hongwei Xie</a><sup>2†</sup>,
+            </span>
+            <span class="author-block">
+              Bing Wang</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              Xiang Bai</a><sup>1✉</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Huazhong University of Science &amp; Technology</span>
+            <span class="author-block"><sup>2</sup>Xiaomi EV</span>
+            <p></p>
+            <span class="author-block"><sup>†</sup><small>Project Lead.</small></span>
+            <span class="author-block"><sup>✉</sup><small>Corresponding Author.</small></span>
+            <span class="author-block"><sup>*</sup><small>Equal Contribution.</small></span>
+            <p></p>
+            <span class="author-block"><small>Work done when Haoyu Fu and Zhongchuang
+              Zhao were interns at Xiaomi EV</small></span>
+            
+          <!-- </div> -->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming soon)</span>
+                  </a>
+              </span>
+            </div>
+
+            
+            
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            End-to-end (E2E) autonomous driving methods still struggle to make correct decisions in interactive closed-loop evaluation due to limited causal reasoning capability. Current methods attempt to leverage the powerful understanding and reasoning abilities of Vision-Language Models (VLMs) to resolve this dilemma.  However, the problem is still open that few VLMs for E2E methods perform well in the closed-loop evaluation due to the gap between the semantic reasoning space and the purely numerical trajectory output in the action space. To tackle this issue, we propose ORION,  a holistic E2E autonomous driving framework by vision-language instructed action generation.
+ORION uniquely combines a QT-Former to aggregate long-term history context, a Large Language Model (LLM) for driving scenario reasoning, and a generative planner for precision trajectory prediction. ORION further aligns the reasoning space and the action space to implement a unified E2E optimization for both visual question-answering (VQA) and planning tasks. Our method achieves an impressive closed-loop performance of 77.74 Driving Score (DS) and 54.62% Success Rate (SR) on the challenge Bench2Drive datasets, which outperforms state-of-the-art (SOTA) methods by a large margin of 14.28 DS and 19.61% SR. <br><br><br>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+</section>
+
+
+<section class="section"></section>
+  <div class="container is-max-desktop">
+    <h2 class="title is-2" style="white-space: nowrap;"> Comprehensive capabilities of ORION in close-loop simulation</h2>
+    <video controls width="100%" autoplay controls muted loop playsinline>
+      <source src="./static/videos/orion-demo.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2">Framework</h2>
+    <div class="content has-text-justified">
+      The pipeline of our ORION, a holistic E2E framework aligning vision-reasoning-action space. It consists of three key components: a QT-Former to extract long-term context and link the vision space of the vision encoder and LLM's reasoning space; the LLM for performing textual tasks and predicting a planning token; and a generative planner that bridges reasoning and action space for generating a multi-modal trajectory conditioned by the planning token.
+    </div>
+    <img src="./static/images/Frameworks.png">
+  </div>
+</section>
+<div style="height: 30px;"></div>
+<section class="section"></section>
+  <div class="container is-max-desktop">
+    <h2 class="title is-2">Main Results</h2>
+    <div class="content has-text-justified">
+      Closed-loop,  Open-loop and Multi-Ability Results of E2E-AD Methods in Bench2Drive under official training set. C/L refers to camera/LiDAR. Avg. L2 is averaged over the predictions in 2 seconds under 2Hz, similar to UniAD. * denote expert feature distillation.  NC: navigation command, TP: target point, DS: Driving Score, SR: Success Rate, Eff: Efficiency, Com: Comfortness, M: Merging, O: Overtaking, EB: Emergency Brake, GW: Give Way, TS: Traffic Sign.
+    </div>
+    <img src="./static/images/Mainresults.png">
+  </div>
+</section>
+
+<section class="section"></section>
+  <div class="container is-max-desktop">
+    <h2 class="title is-2">Qualitative Results</h2>
+    <div class="content has-text-justified">
+      Qualitative results of ORION on the Bench2Drive closed-loop evaluation set. The brown, red, and green refer to the action decision, the objects that influence driving decisions, and the prediction trajectory, respectively.
+    </div>
+    <img src="./static/images/QualitativeResults.png">
+  </div>
+</section>
+
+<div style="height: 30px;"></div>
+
+<style>
+  .container.fixed-width {
+    max-width: 1000px; 
+    margin: 0 auto;
+  }
+  .title-container {
+    padding-left: 0px;  
+  }
+  .columns {
+    margin-top: 20px; 
+  }
+</style>
+
+<head>
+  <style>
+    .video-container-wrapper {
+      background-color: #f0f0f0; 
+      padding: 20px; 
+      border-radius: 5px; 
+    }
+
+    .video-container-wrapper video {
+      width: 100%; 
+      border-radius: 8px; 
+    }
+
+    .columns {
+      margin-bottom: 20px; 
+    }
+
+    .background-container {
+      background-color: #f0f0f0; 
+      padding: 30px; 
+      border-radius: 15px; 
+    }
+  </style>
+</head>
+
+<div class="container fixed-width">
+  <div class="title-container"> 
+    <h2 class="title is-2">Closed loop evaluation in different scenarios</h2>  
+  </div>
+  <div style="height: 50px;"></div>
+
+  <div class="container background-container">
+    <div class="columns is-multiline is-variable is-2 is-centered">
+    <div class="column is-half">
+    <h3 class="title is-4 has-text-centered">Construction Obstacle Two-Ways</h3>
+        <div class="content"> 
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="static/videos/RouteScenario_1833_rep0_Town12_ConstructionObstacleTwoWays_1_7_02_28_05_11_40.mp4" type="video/mp4">
+          </video>
+        </div>
+  </div>
+  <div class="column is-half">
+    <h3 class="title is-4 has-text-centered">Crossing Bicycle Flow</h3>
+        <div class="content">
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="static/videos/RouteScenario_3093_rep0_Town12_CrossingBicycleFlow_1_19_02_28_05_11_34.mp4" type="video/mp4">
+          </video>
+        </div>
+  </div>
+  </div>
+
+  <p></p>
+  <div style="height: 10px;"></div>
+  <div class="columns is-multiline is-variable is-2 is-centered">
+    <div class="column is-half">
+    <h3 class="title is-4 has-text-centered">Hard Break Route</h3>
+        <div class="content"> 
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="static/videos/RouteScenario_26406_rep0_Town04_HardBreakRoute_1_1_02_28_06_02_49.mp4" type="video/mp4">
+          </video>
+        </div>
+  </div>
+  <div class="column is-half">
+    <h3 class="title is-4 has-text-centered">Non-Signalized Left-Turn Enter Flow</h3>
+        <div class="content">
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="static/videos/RouteScenario_28219_rep0_Town12_NonSignalizedJunctionLeftTurnEnterFlow_1_1_02_28_05_11_35.mp4" type="video/mp4">
+          </video>
+        </div>
+  </div>
+  </div>
+
+  <p></p>
+  <div style="height: 10px;"></div>
+  <div class="columns is-multiline is-variable is-2 is-centered">
+    <div class="column is-half">
+    <h3 class="title is-4 has-text-centered">Accident</h3>
+        <div class="content"> 
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="static/videos/RouteScenario_3307_rep0_Town13_Accident_1_0_03_05_03_34_54.mp4" type="video/mp4">
+          </video>
+        </div>
+  </div>
+  <div class="column is-half">
+    <h3 class="title is-4 has-text-centered">Opposite Vehicle Taking Priority</h3>
+        <div class="content">
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="static/videos/RouteScenario_2143_rep0_Town12_OppositeVehicleTakingPriority_1_5_03_05_03_34_55.mp4" type="video/mp4">
+          </video>
+        </div>
+  </div>
+  </div>
+
+  <p></p>
+  <div style="height: 10px;"></div>
+  <div class="columns is-multiline is-variable is-2 is-centered">
+    <div class="column is-half">
+    <h3 class="title is-4 has-text-centered">Highway Cut-In</h3>
+        <div class="content"> 
+          <video class="video-container" autoplay controls muted loop playsinline>
+            <source src="static/videos/RouteScenario_3072_rep0_Town12_HighwayCutIn_1_23_03_05_06_08_49.mp4" type="video/mp4">
+          </video>
+        </div>
+  </div>
+  </div>
+
+  </div>
+
+</div>
+
+<div style="height: 30px;"></div>
+
+<div class="container fixed-width">
+  <div class="title-container"> 
+    <h2 class="title is-2">Qualitatively analysis on Bench2Drive compared ORION with baselines</h2>  
+    <div style="height: 3px;"></div>
+    <p class="subtitle is-5">More details in <a href="" target="_blank"> ORION repository</a> </p>
+    <p class="subtitle is-5">TCP|UniAD-Base|VAD-Base|ORION</p>  
+  </div>
+  <div style="height: 50px;"></div>
+<div class="container background-container">
+  <h3 class="title is-4 has-text-centered">Route 2283: Signalized Junction Left-Turn</h3>
+  <div class="columns is-multiline is-variable is-4 is-centered">
+    <!-- Row 2 -->
+    <div class="column is-one-fourths">
+      <div class="content">
+        <p class="content is-5 has-text-left">TCP: Success</p>
+        <img src="./static/gifs/4183_tcp_bev_SignalizedJunctionLeftTurn_success.gif">
+      </div>
+    </div>
+    <div class="column is-one-fourths">
+      <div class="content">
+        <p class="content is-5 has-text-left">UniAD: Failed</p>
+        <img src="./static/gifs/4183_uniad_bev_SignalizedJunctionLeftTurn_failed.gif">
+      </div>
+    </div>
+    <div class="column is-one-fourths">
+      <div class="content">
+        <p class="content is-5 has-text-left">VAD: Success</p>
+        <img src="./static/gifs/4183_vad_bev_SignalizedJunctionLeftTurn_success.gif">
+      </div>
+    </div>
+    <div class="column is-one-fourths">
+      <div class="content">
+        <p class="content is-5 has-text-left">ORION: Success</p>
+        <img src="./static/gifs/Ours_bev/RouteScenario_4183_rep0_Town12_SignalizedJunctionLeftTurn_1_0_03_12_16_16_32.gif">
+      </div>
+    </div>
+  </div>
+</div>
+<div style="height: 30px;"></div>
+<div class="container background-container">
+  <h3 class="title is-4 has-text-centered">Route 3749: Enter Actor Flow</h3>
+  <div class="columns is-multiline is-variable is-4 is-centered">
+    <!-- Row 2 -->
+    <div class="column is-one-fourths">
+      <div class="content">
+        <p class="content is-5 has-text-left">TCP: Success</p>
+        <img src="./static/gifs/3749_tcp_bev_EnterActorFlow_success.gif">
+      </div>
+    </div>
+    <div class="column is-one-fourths">
+      <div class="content">
+        <p class="content is-5 has-text-left">UniAD: Failed</p>
+        <img src="./static/gifs/3749_uniad_bev_EnterActorFlow_failed.gif">
+      </div>
+    </div>
+    <div class="column is-one-fourths">
+      <div class="content">
+        <p class="content is-5 has-text-left">VAD: Failed</p>
+        <img src="./static/gifs/3749_vad_bev_EnterActorFlow_failed.gif">
+      </div>
+    </div>
+    <div class="column is-one-fourths">
+      <div class="content">
+        <p class="content is-5 has-text-left">ORION: Success</p>
+        <img src="./static/gifs/Ours_bev/RouteScenario_3749_rep0_Town13_EnterActorFlow_1_0_03_12_21_29_17.gif">
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div style="height: 30px;"></div>
+  <div class="container background-container">
+    <h3 class="title is-4 has-text-centered">Route 25418: Parked Obstacle</h3>
+    <div class="columns is-multiline is-variable is-4 is-centered">
+      <!-- Row 2 -->
+      <div class="column is-one-fourths">
+        <div class="content">
+          <p class="content is-5 has-text-left">TCP: Failed</p>
+          <img src="./static/gifs/25318_tcp_bev_ParkedObstacle_failed.gif">
+        </div>
+      </div>
+      <div class="column is-one-fourths">
+        <div class="content">
+          <p class="content is-5 has-text-left">UniAD: Failed</p>
+          <img src="./static/gifs/25318_uniad_bev_ParkedObstacle_failed.gif">
+        </div>
+      </div>
+      <div class="column is-one-fourths">
+        <div class="content">
+          <p class="content is-5 has-text-left">VAD: Success</p>
+          <img src="./static/gifs/25318_vad_bev_ParkedObstacle_success.gif">
+        </div>
+      </div>
+      <div class="column is-one-fourths">
+        <div class="content">
+          <p class="content is-5 has-text-left">ORION: Success</p>
+          <img src="./static/gifs/Ours_bev/RouteScenario_25318_rep0_Town05_ParkedObstacle_1_20_03_12_07_43_25.gif">
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div style="height: 30px;"></div>
+    <div class="container background-container">
+      <h3 class="title is-4 has-text-centered">Route 26396: Static Cut-In</h3>
+      <div class="columns is-multiline is-variable is-4 is-centered">
+        <!-- Row 2 -->
+        <div class="column is-one-fourths">
+          <div class="content">
+            <p class="content is-5 has-text-left">TCP: Failed</p>
+            <img src="./static/gifs/26396_tcp_bev_StaticCutIn_failed.gif">
+          </div>
+        </div>
+        <div class="column is-one-fourths">
+          <div class="content">
+            <p class="content is-5 has-text-left">UniAD: Success</p>
+            <img src="./static/gifs/26396_uniad_bev_StaticCutIn_success.gif">
+          </div>
+        </div>
+        <div class="column is-one-fourths">
+          <div class="content">
+            <p class="content is-5 has-text-left">VAD: Success</p>
+            <img src="./static/gifs/26396_vad_bev_StaticCutIn_success.gif">
+          </div>
+        </div>
+        <div class="column is-one-fourths">
+          <div class="content">
+            <p class="content is-5 has-text-left">ORION: Success</p>
+            <img src="./static/gifs/Ours_bev/RouteScenario_26396_rep0_Town05_StaticCutIn_1_15_03_12_18_25_33.gif">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+</div>
+
+</div>
+<div style="margin-top: 30px;"></div>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3">BibTeX</h2>
+    <pre><code>@article{ORION,
+  title={ORION: A Holistic End-to-End Autonomous Driving Framework by Vision-Language Instructed Action Generation},
+  year={2025}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <!-- <a class="icon-link"
+         href="https://arxiv.org/abs/2310.08528">
+        <i class="fas fa-file-pdf"></i>
+      </a>  -->
+      <a class="icon-link" href="https://github.com/hustvl" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            The source code reference from from <a
+              href="https://github.com/HGao-cv/RAD">RAD</a>,
+              we thank the authors for sharing the templates.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
