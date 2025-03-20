@@ -1,5 +1,5 @@
 # ORION 
-Project page of [**ORION: A Holistic End-to-End Autonomous Driving Framework by Vision-Language Instructed Action Generation**](https://xiaomi-mlab.github.io/orion.github.io/)
+Project page of [**ORION: A Holistic End-to-End Autonomous Driving Framework by Vision-Language Instructed Action Generation**](https://xiaomi-mlab.github.io/Orion/)
 
 
 # Website License
