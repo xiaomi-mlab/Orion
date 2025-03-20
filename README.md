@@ -38,7 +38,7 @@ The results of UniAD & VAD are refer to the official results of [Bench2DriveZoo]
 | UniAD-Tiny |0.80 | 40.73 |  13.18  | [Json](assets/results/UniAD-Tiny.json) |
 | UniAD-Base |0.73 | 45.81  |  16.36  | [Json](assets/results/UniAD-Base.json) |
 | VAD        |0.91 | 42.35  | 15.00  | [Json](assets/results/VAD.json) |
-| ORION       |0.68 | 77.74  | 54.62 | [Json](assets/results/ORION.json) |
+| ORION       |**0.68** | **77.74**  | **54.62** | [Json](assets/results/ORION.json) |
 
 
 ## Qalitative visualization & Analysis
