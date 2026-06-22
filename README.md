@@ -26,7 +26,7 @@ ORION uniquely combines a QT-Former to aggregate long-term history context, a La
 </div>
 
 ## News
-**`[2026/06/20]`** Our follow-up work **MindDrive**, a closed-loop reinforcement learning VLA model with a smaller model size and faster inference, has been accepted by **ECCV 2026** 🎉🎉🎉! [Paper](https://arxiv.org/pdf/2512.13636) | [Code](https://github.com/xiaomi-mlab/MindDrive)
+**`[2026/06/20]`** Our follow-up work **MindDrive**, a closed-loop reinforcement learning VLA model with fewer parameters and higher performance, has been accepted by **ECCV 2026** 🎉🎉🎉! [Paper](https://arxiv.org/pdf/2512.13636) | [Code](https://github.com/xiaomi-mlab/MindDrive)
 
 **`[2025/08/13]`** ORION training code and dataset are now released!
 
