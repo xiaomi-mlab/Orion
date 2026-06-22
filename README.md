@@ -26,11 +26,13 @@ ORION uniquely combines a QT-Former to aggregate long-term history context, a La
 </div>
 
 ## News
+**`[2026/06/20]`** Our follow-up work **MindDrive**, a closed-loop reinforcement learning VLA model with a smaller model size and faster inference, has been accepted by **ECCV 2026** 🎉🎉🎉! [Paper](https://arxiv.org/pdf/2512.13636) | [Code](https://github.com/xiaomi-mlab/MindDrive)
+
 **`[2025/08/13]`** ORION training code and dataset are now released!
 
 `[2025/06/26]` ORION is accepted by **ICCV 2025**🎉🎉🎉!
 
-`[2025/06/26]` ORION training code and dataset will be released, stay tuned！
+`[2025/06/26]` ORION training code and dataset will be released, stay tuned!
 
 `[2025/04/10]` ORION inference code and checkpoint release.
 
@@ -141,13 +143,22 @@ We provide some visualization videos and qualitatively analysis for Orion and co
 
 
 ## Citation
-If this work is helpful for your research, please consider citing:
+If these works are helpful for your research, please consider citing:
 
 ```
 @inproceedings{fu2025orion,
   title={ORION: A Holistic End-to-End Autonomous Driving Framework by Vision-Language Instructed Action Generation},
   author={Haoyu Fu and Diankun Zhang and Zongchuang Zhao and Jianfeng Cui and Dingkang Liang and Chong Zhang and Dingyuan Zhang and Hongwei Xie and Bing Wang and Xiang Bai},
   booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  year={2025}
+}
+```
+
+```
+@article{fu2025minddrive,
+  title={MindDrive: A Vision-Language-Action Model for Autonomous Driving via Online Reinforcement Learning},
+  author={Fu, Haoyu and Zhang, Diankun and Zhao, Zongchuang and Cui, Jianfeng and Xie, Hongwei and Wang, Bing and Chen, Guang and Liang, Dingkang and Bai, Xiang},
+  journal={arXiv preprint arXiv:2512.13636},
   year={2025}
 }
 ```
