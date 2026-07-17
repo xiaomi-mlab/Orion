@@ -18,8 +18,8 @@ import carla
 import numpy as np
 from PIL import Image
 from torchvision import transforms as T
-from Bench2DriveZoo.team_code.pid_controller import PIDController
-from Bench2DriveZoo.team_code.planner import RoutePlanner
+from pid_controller import PIDController
+from planner import RoutePlanner
 from leaderboard.autoagents import autonomous_agent
 from mmcv import Config
 from mmcv.models import build_model 
